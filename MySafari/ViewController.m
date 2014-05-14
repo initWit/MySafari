@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () <UIWebViewDelegate,UITextFieldDelegate>
+@interface ViewController () <UIWebViewDelegate,UITextFieldDelegate, UIScrollViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *myWebView;
 @property (strong, nonatomic) IBOutlet UITextField *myURLTextField;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
@@ -23,7 +23,32 @@
     [super viewDidLoad];
 	[self.backButton setEnabled:NO];
     [self.forwardButton setEnabled:NO];
+
+    self.myWebView.scrollView.delegate = self;
 }
+
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    CGFloat myOffset = self.myWebView.scrollView.contentOffset.y;
+
+    NSLog(@"contentOffset.y is %g",(myOffset));
+
+    if (myOffset > 0) {
+        self.myURLTextField.alpha = (1-(myOffset*.01));
+
+
+        self.myURLTextField.frame = CGRectMake(20.0, 80.0 -myOffset, self.myURLTextField.frame.size.width, self.myURLTextField.frame.size.height);
+
+    }
+
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -33,7 +58,15 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSURL *myURL = [NSURL URLWithString:textField.text];
+
+    NSString *finishedURL = textField.text;
+
+
+    if (![textField.text hasPrefix:@"http://"]) {
+        finishedURL = [@"http://" stringByAppendingString:textField.text];
+    }
+
+    NSURL *myURL = [NSURL URLWithString:finishedURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:myURL];
     [self.myWebView loadRequest:request];
     [textField resignFirstResponder];
@@ -64,6 +97,7 @@
     [self.myWebView reload];
 }
 
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
 
@@ -84,6 +118,26 @@
     {
         [self.backButton setEnabled: NO];
     }
+
+//    NSLog(@" is %@",webView.request.URL.absoluteString);
+    self.myURLTextField.text = webView.request.URL.absoluteString;
+
+    NSString *titleFromTheWebViewString = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+
+    self.navigationItem.title = titleFromTheWebViewString;
+
+
 }
+
+- (IBAction)showMyAlert:(id)sender {
+
+    UIAlertView *myAlertView = [[UIAlertView alloc]initWithTitle:@"Coming soon!"
+                                                         message:@"Coming soon!"
+                                                        delegate:self
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+    [myAlertView show];
+}
+
 
 @end
