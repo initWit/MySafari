@@ -21,6 +21,7 @@
 		66E0E17A1923EABD001B687A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E0E15C1923EABD001B687A /* UIKit.framework */; };
 		66E0E1821923EABD001B687A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66E0E1801923EABD001B687A /* InfoPlist.strings */; };
 		66E0E1841923EABD001B687A /* MySafariTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E0E1831923EABD001B687A /* MySafariTests.m */; };
+		66E0E1901923F0A4001B687A /* CheckMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E0E18F1923F0A4001B687A /* CheckMate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		66E0E17F1923EABD001B687A /* MySafariTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MySafariTests-Info.plist"; sourceTree = "<group>"; };
 		66E0E1811923EABD001B687A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		66E0E1831923EABD001B687A /* MySafariTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySafariTests.m; sourceTree = "<group>"; };
+		66E0E18F1923F0A4001B687A /* CheckMate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CheckMate.framework; path = ../../CheckMate.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66E0E1901923F0A4001B687A /* CheckMate.framework in Frameworks */,
 				66E0E15B1923EABD001B687A /* CoreGraphics.framework in Frameworks */,
 				66E0E15D1923EABD001B687A /* UIKit.framework in Frameworks */,
 				66E0E1591923EABD001B687A /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		66E0E1571923EABD001B687A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66E0E18F1923F0A4001B687A /* CheckMate.framework */,
 				66E0E1581923EABD001B687A /* Foundation.framework */,
 				66E0E15A1923EABD001B687A /* CoreGraphics.framework */,
 				66E0E15C1923EABD001B687A /* UIKit.framework */,
@@ -376,6 +380,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/RPF_MacBookAir/Downloads,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MySafari/MySafari-Prefix.pch";
 				INFOPLIST_FILE = "MySafari/MySafari-Info.plist";
@@ -389,6 +397,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/RPF_MacBookAir/Downloads,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MySafari/MySafari-Prefix.pch";
 				INFOPLIST_FILE = "MySafari/MySafari-Info.plist";
