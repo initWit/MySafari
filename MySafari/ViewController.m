@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *myURLTextField;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) IBOutlet UIButton *forwardButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *mySpinner;
 
 @end
 
@@ -98,6 +99,11 @@
 }
 
 
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self.mySpinner startAnimating];
+}
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
 
@@ -125,6 +131,12 @@
     NSString *titleFromTheWebViewString = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 
     self.navigationItem.title = titleFromTheWebViewString;
+
+    if (![webView isLoading]) {
+        [self.mySpinner stopAnimating];
+    }
+
+
 
 
 }

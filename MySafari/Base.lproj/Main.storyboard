@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - default-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vLi-Wa-Ffs">
-                                <rect key="frame" x="0.0" y="118" width="320" height="379"/>
+                                <rect key="frame" x="0.0" y="80" width="320" height="379"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -33,6 +33,11 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="4pa-vD-JKC"/>
                                 </connections>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="j80-ru-nXN">
+                                <rect key="frame" x="142" y="289" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jl1-ti-k0Z">
                                 <rect key="frame" x="0.0" y="499" width="320" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,10 +98,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="default" id="XX9-nK-zOg"/>
+                    <navigationItem key="navigationItem" id="XX9-nK-zOg"/>
                     <connections>
                         <outlet property="backButton" destination="6dn-cG-ERU" id="U9w-JS-JwP"/>
                         <outlet property="forwardButton" destination="1JE-UN-o9G" id="osI-w2-g9o"/>
+                        <outlet property="mySpinner" destination="j80-ru-nXN" id="LTJ-gm-jbM"/>
                         <outlet property="myURLTextField" destination="xVz-Hj-Hrh" id="Yw8-Cc-eo0"/>
                         <outlet property="myWebView" destination="vLi-Wa-Ffs" id="WK3-wl-GIO"/>
                     </connections>
